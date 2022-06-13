@@ -79,9 +79,9 @@ setup(
 
     extras_require={
         ':python_version>="3.5.2"': [
-            'aiohttp==3.6.2',
-            'aiodns==1.1.1',
-            'yarl==1.1.0',
+            'aiohttp>=3.6.2',
+            'aiodns>=1.1.1',
+            'yarl>=1.1.0',
         ],
         'qa': [
             'flake8==3.7.9'
