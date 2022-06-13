@@ -11,12 +11,12 @@ sys.path.append(root)
 
 # ----------------------------------------------------------------------------
 
-import ccxt  # noqa: F402
-from ccxt.base.decimal_to_precision import ROUND_UP, ROUND_DOWN  # noqa F401
+import ccxt_bitclude  # noqa: F402
+from ccxt_bitclude.base.decimal_to_precision import ROUND_UP, ROUND_DOWN  # noqa F401
 
 # ----------------------------------------------------------------------------
 
-exchange = ccxt.Exchange({
+exchange = ccxt_bitclude.Exchange({
     'id': 'regirock',
 })
 

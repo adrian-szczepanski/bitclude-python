@@ -16,7 +16,7 @@ sys.path.append(root)
 
 # ------------------------------------------------------------------------------
 
-import ccxt  # noqa: E402
+import ccxt_bitclude  # noqa: E402
 
 # ------------------------------------------------------------------------------
 
@@ -48,7 +48,7 @@ values = [
     }
 ]
 
-pprint(ccxt.Exchange.deep_extend(*values))
+pprint(ccxt_bitclude.Exchange.deep_extend(*values))
 
 # assert.deepEqual ({
 #     a: 1,

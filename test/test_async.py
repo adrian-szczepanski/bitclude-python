@@ -19,7 +19,7 @@ sys.path.append(root)
 
 # ------------------------------------------------------------------------------
 
-import ccxt.async_support as ccxt  # noqa: E402
+import ccxt_bitclude.async_support as ccxt  # noqa: E402
 
 # ------------------------------------------------------------------------------
 
@@ -50,7 +50,7 @@ exchanges = {}
 
 path = os.path.dirname(ccxt.__file__)
 if 'site-packages' in os.path.dirname(ccxt.__file__):
-    raise Exception('\n\nYou are running test_async.py/test.py against a globally-installed version of the library!\nIt was previously installed into your site-packages folder by pip or pip3.\n\nTo ensure testing against the local folder uninstall it first by running the following commands:\npip uninstall ccxt\npip3 uninstall ccxt\n\n')
+    raise Exception('\n\nYou are running test_async.py/test.py against a globally-installed version of the library!\nIt was previously installed into your site-packages folder by pip or pip3.\n\nTo ensure testing against the local folder uninstall it first by running the following commands:\npip uninstall ccxt_bitclude\npip3 uninstall ccxt_bitclude\n\n')
 
 # ------------------------------------------------------------------------------
 # string coloring functions
@@ -331,7 +331,7 @@ async def test_exchange(exchange):
             dump(green(exchange.id), 'fetched', green(str(len(orders))), 'orders')
         except (ccxt.ExchangeError, ccxt.NotSupported) as e:
             dump_error(yellow('[' + type(e).__name__ + ']'), e.args)
-        # except ccxt.NotSupported as e:
+        # except ccxt_bitclude.NotSupported as e:
         #     dump(yellow(type(e).__name__), e.args)
 
     # time.sleep(delay)

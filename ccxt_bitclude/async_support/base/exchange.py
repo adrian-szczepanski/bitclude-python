@@ -17,18 +17,18 @@ import yarl
 
 # -----------------------------------------------------------------------------
 
-from ccxt.async_support.base.throttle import throttle
+from ccxt_bitclude.async_support.base.throttle import throttle
 
 # -----------------------------------------------------------------------------
 
-from ccxt.base.errors import ExchangeError
-from ccxt.base.errors import ExchangeNotAvailable
-from ccxt.base.errors import RequestTimeout
-from ccxt.base.errors import NotSupported
+from ccxt_bitclude.base.errors import ExchangeError
+from ccxt_bitclude.base.errors import ExchangeNotAvailable
+from ccxt_bitclude.base.errors import RequestTimeout
+from ccxt_bitclude.base.errors import NotSupported
 
 # -----------------------------------------------------------------------------
 
-from ccxt.base.exchange import Exchange as BaseExchange
+from ccxt_bitclude.base.exchange import Exchange as BaseExchange
 
 # -----------------------------------------------------------------------------
 

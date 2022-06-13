@@ -15,7 +15,7 @@ sys.path.append(root)
 
 # ------------------------------------------------------------------------------
 
-import ccxt  # noqa: E402
+import ccxt_bitclude  # noqa: E402
 
 # ------------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ market = {
     }
 }
 
-exchange = ccxt.Exchange({
+exchange = ccxt_bitclude.Exchange({
     'id': 'mock',
     'markets': {'FOO/BAR': market},
 })

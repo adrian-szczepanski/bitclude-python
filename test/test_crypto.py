@@ -11,9 +11,9 @@ sys.path.append(root)
 
 # ----------------------------------------------------------------------------
 
-import ccxt  # noqa: F402
+import ccxt_bitclude  # noqa: F402
 
-Exchange = ccxt.Exchange
+Exchange = ccxt_bitclude.Exchange
 hash = Exchange.hash
 ecdsa = Exchange.ecdsa
 jwt = Exchange.jwt

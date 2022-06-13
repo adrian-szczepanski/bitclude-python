@@ -18,7 +18,7 @@ sys.path.append(root)
 
 # ------------------------------------------------------------------------------
 
-import ccxt  # noqa: E402
+import ccxt_bitclude  # noqa: E402
 
 # ------------------------------------------------------------------------------
 
@@ -47,9 +47,9 @@ exchanges = {}
 
 # ------------------------------------------------------------------------------
 
-path = os.path.dirname(ccxt.__file__)
-if 'site-packages' in os.path.dirname(ccxt.__file__):
-    raise Exception('\n\nYou are running test_async.py/test.py against a globally-installed version of the library!\nIt was previously installed into your site-packages folder by pip or pip3.\n\nTo ensure testing against the local folder uninstall it first by running the following commands:\npip uninstall ccxt\npip3 uninstall ccxt\n\n')
+path = os.path.dirname(ccxt_bitclude.__file__)
+if 'site-packages' in os.path.dirname(ccxt_bitclude.__file__):
+    raise Exception('\n\nYou are running test_async.py/test.py against a globally-installed version of the library!\nIt was previously installed into your site-packages folder by pip or pip3.\n\nTo ensure testing against the local folder uninstall it first by running the following commands:\npip uninstall ccxt_bitclude\npip3 uninstall ccxt_bitclude\n\n')
 
 # ------------------------------------------------------------------------------
 # string coloring functions
@@ -300,9 +300,9 @@ def test_exchange(exchange):
         try:
             orders = exchange.fetch_orders(symbol)
             dump(green(exchange.id), 'fetched', green(str(len(orders))), 'orders')
-        except (ccxt.ExchangeError, ccxt.NotSupported) as e:
+        except (ccxt_bitclude.ExchangeError, ccxt_bitclude.NotSupported) as e:
             dump_error(yellow('[' + type(e).__name__ + ']'), e.args)
-        # except ccxt.NotSupported as e:
+        # except ccxt_bitclude.NotSupported as e:
         #     dump(yellow(type(e).__name__), e.args)
 
     # time.sleep(delay)
@@ -341,7 +341,7 @@ def try_all_proxies(exchange, proxies=['']):
             current_proxy = (current_proxy + 1) % len(proxies)
             load_exchange(exchange)
             test_exchange(exchange)
-        except (ccxt.RequestTimeout, ccxt.AuthenticationError, ccxt.NotSupported, ccxt.DDoSProtection, ccxt.ExchangeNotAvailable, ccxt.ExchangeError) as e:
+        except (ccxt_bitclude.RequestTimeout, ccxt_bitclude.AuthenticationError, ccxt_bitclude.NotSupported, ccxt_bitclude.DDoSProtection, ccxt_bitclude.ExchangeNotAvailable, ccxt_bitclude.ExchangeError) as e:
             print({'type': type(e).__name__, 'num_retries': num_retries, 'max_retries': max_retries}, str(e)[0:200])
             if (num_retries + 1) == max_retries:
                 dump_error(yellow('[' + type(e).__name__ + ']'), str(e)[0:200])
@@ -371,15 +371,15 @@ with open(keys_file) as file:
     config = json.load(file)
 
 # instantiate all exchanges
-for id in ccxt.exchanges:
+for id in ccxt_bitclude.exchanges:
     if id == 'theocean':
         continue
-    exchange = getattr(ccxt, id)
+    exchange = getattr(ccxt_bitclude, id)
     exchange_config = {'verbose': argv.verbose}
     if sys.version_info[0] < 3:
         exchange_config.update({'enableRateLimit': True})
     if id in config:
-        exchange_config = ccxt.Exchange.deep_extend(exchange_config, config[id])
+        exchange_config = ccxt_bitclude.Exchange.deep_extend(exchange_config, config[id])
     exchanges[id] = exchange(exchange_config)
 
 # ------------------------------------------------------------------------------

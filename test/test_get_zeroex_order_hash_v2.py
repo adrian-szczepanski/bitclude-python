@@ -1,4 +1,4 @@
-import ccxt  # noqa: E402
+import ccxt_bitclude  # noqa: E402
 
 market = {
     'id': 'foobar',
@@ -9,7 +9,7 @@ market = {
     'maker': '',
 }
 
-exchange = ccxt.Exchange({
+exchange = ccxt_bitclude.Exchange({
     'id': 'mock',
     'markets': {'FOO/BAR': market},
     'requiresWeb3': True

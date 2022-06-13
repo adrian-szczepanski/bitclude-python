@@ -8,23 +8,23 @@ __version__ = '1.30.51'
 
 # -----------------------------------------------------------------------------
 
-from ccxt.base.errors import ExchangeError
-from ccxt.base.errors import NetworkError
-from ccxt.base.errors import NotSupported
-from ccxt.base.errors import AuthenticationError
-from ccxt.base.errors import DDoSProtection
-from ccxt.base.errors import RequestTimeout
-from ccxt.base.errors import ExchangeNotAvailable
-from ccxt.base.errors import InvalidAddress
-from ccxt.base.errors import ArgumentsRequired
-from ccxt.base.errors import BadSymbol
-from ccxt.base.errors import RateLimitExceeded
+from ccxt_bitclude.base.errors import ExchangeError
+from ccxt_bitclude.base.errors import NetworkError
+from ccxt_bitclude.base.errors import NotSupported
+from ccxt_bitclude.base.errors import AuthenticationError
+from ccxt_bitclude.base.errors import DDoSProtection
+from ccxt_bitclude.base.errors import RequestTimeout
+from ccxt_bitclude.base.errors import ExchangeNotAvailable
+from ccxt_bitclude.base.errors import InvalidAddress
+from ccxt_bitclude.base.errors import ArgumentsRequired
+from ccxt_bitclude.base.errors import BadSymbol
+from ccxt_bitclude.base.errors import RateLimitExceeded
 
 # -----------------------------------------------------------------------------
 
-from ccxt.base.decimal_to_precision import decimal_to_precision
-from ccxt.base.decimal_to_precision import DECIMAL_PLACES, TRUNCATE, ROUND, ROUND_UP, ROUND_DOWN
-from ccxt.base.decimal_to_precision import number_to_string
+from ccxt_bitclude.base.decimal_to_precision import decimal_to_precision
+from ccxt_bitclude.base.decimal_to_precision import DECIMAL_PLACES, TRUNCATE, ROUND, ROUND_UP, ROUND_DOWN
+from ccxt_bitclude.base.decimal_to_precision import number_to_string
 
 # -----------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ from cryptography.hazmat.primitives.serialization import load_pem_private_key
 # -----------------------------------------------------------------------------
 
 # ecdsa signing
-from ccxt.static_dependencies import ecdsa
+from ccxt_bitclude.static_dependencies import ecdsa
 # eddsa signing
 try:
     import axolotl_curve25519 as eddsa
@@ -350,7 +350,7 @@ class Exchange(object):
 
         # version = '.'.join(map(str, sys.version_info[:3]))
         # self.userAgent = {
-        #     'User-Agent': 'ccxt/' + __version__ + ' (+https://github.com/ccxt/ccxt) Python/' + version
+        #     'User-Agent': 'ccxt_bitclude/' + __version__ + ' (+https://github.com/ccxt/ccxt) Python/' + version
         # }
 
         self.origin = self.uuid()
@@ -402,7 +402,7 @@ class Exchange(object):
             self.session.close()
 
     def __repr__(self):
-        return 'ccxt.' + ('async_support.' if self.asyncio_loop else '') + self.id + '()'
+        return 'ccxt_bitclude.' + ('async_support.' if self.asyncio_loop else '') + self.id + '()'
 
     def __str__(self):
         return self.name
